@@ -1,64 +1,41 @@
 'use client';
 
-import { Menu } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
-
+import { HandHeart, Home, Info, Menu, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+    return (
+        <div className="relative">
+            <div className="bg-white px-12 py-3 shadow-md flex justify-between fixed top-0 right-0 left-0">
+                <div className="text-red-800 md:text-lg text-base cursor-pointer"><span className="text-blue-800">Print Station</span> Nepal</div>
+                <div className="hidden md:flex space-x-12 cursor-pointer list-none text-gray-700 text-base">
+                    <Link href='/home'><li>Home</li></Link>
+                    <Link href='/services'><li>Services</li></Link>
+                    <Link href='/about-us'><li>About Us</li></Link>
+                    <Link href='/contact'><li>Contact</li></Link>
+                </div>
+                <div className="md:hidden">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger><Menu size={25} /></DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <Link href='/home'><DropdownMenuItem><Home size={15} /> Home</DropdownMenuItem></Link>
+                            <Link href='/services'><DropdownMenuItem><HandHeart size={15} /> Services</DropdownMenuItem></Link>
+                            <Link href='/about-us'><DropdownMenuItem><Info size={15} />About Us</DropdownMenuItem></Link>
+                            <Link href='/contact'><DropdownMenuItem><MessageCircle size={15} />Contact</DropdownMenuItem></Link>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
+            </div>
+        </div>
 
-  return (
-    <div className="bg-white px-12 py-3 shadow-md flex justify-between ">
-      <div className="text-red-800 md:text-lg text-base cursor-pointer">
-        <span className="text-blue-800">Print Station</span> Nepal
-      </div>
-      <div className="hidden md:flex space-x-12 cursor-pointer list-none text-gray-700 text-base">
-        <Link href="/">
-          <li>Home</li>
-        </Link>
-        <Link href="/services">
-          <li>Services</li>
-        </Link>
-        <Link href="/about-us">
-          <li>About Us</li>
-        </Link>
-        <Link href="/contact">
-          <li>Contact</li>
-        </Link>
-      </div>
-      <div className="md:hidden">
-        <Menu
-          size={25}
-          onClick={() => setShowMenu(true)}
-          className="cursor-pointer"
-        />
-        {showMenu && <>
-          <DropdownMenu>
-  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-
-        </>}
-      </div>
-    </div>
-  );
-};
+    );
+}
 
 export default Navbar;
