@@ -12,7 +12,7 @@ import {
 
 const Navbar = () => {
     return (
-        <div className="relative">
+        <div className="relative z-30">
             <div className="bg-white px-12 py-3 shadow-md flex justify-between fixed top-0 right-0 left-0">
                 <div className="text-red-800 md:text-lg text-base cursor-pointer"><span className="text-blue-800">Print Station</span> Nepal</div>
                 <div className="hidden md:flex space-x-12 cursor-pointer list-none text-gray-700 text-base">
