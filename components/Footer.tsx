@@ -1,7 +1,7 @@
-'use server';
+'use client';
 
 import {
-  FacebookIcon,
+  Facebook,
   Instagram,
   Mail,
   MapPin,
@@ -56,7 +56,7 @@ function Footer() {
                   href="facebook.com"
                   className="text-gray-600 hover:text-blue-600"
                 >
-                  <FacebookIcon size={20} />
+                  <Facebook size={20} />
                 </Link>
                 <Link
                   href="Instagram.com"
