@@ -37,7 +37,7 @@ export default function Home() {
             src="/hero-image.png"
             alt="Printing machine"
             fill
-            className="object-cover rounded-lg"
+            className="rounded-lg"
           />
         </div>
       </section>
