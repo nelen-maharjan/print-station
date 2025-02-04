@@ -1,5 +1,3 @@
-'use server';
-
 import {
   FacebookIcon,
   Instagram,
@@ -52,24 +50,21 @@ function Footer() {
             <div className="text-center">
               <h3 className="font-semibold mb-2">Follow Us on</h3>
               <div className="space-x-4 flex justify-center items-center ">
-                <Link
+                <a
                   href="facebook.com"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   <FacebookIcon size={20} />
-                </Link>
-                <Link
+                </a>
+                <a
                   href="Instagram.com"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   <Instagram size={20} />
-                </Link>
-                <Link
-                  href="x.com"
-                  className="text-gray-600 hover:text-blue-600"
-                >
+                </a>
+                <a href="x.com" className="text-gray-600 hover:text-blue-600">
                   <Twitter size={20} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
