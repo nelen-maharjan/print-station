@@ -14,33 +14,33 @@ import React from 'react';
 function Footer() {
   return (
     <>
-      <footer className="bg-[#FBF4F4] px-6 ">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-4 border-b pt-8">
+      <footer className="bg-[#FBF4F4] px-6">
+        <div className="max-w-6xl mx-auto flex sm:flex-col justify-evenly">
+          <div className="grid  grid-cols-2 gap-8 pb-4 border-b border-black/40 pt-8">
             <div className="text-center">
               <h3 className="font-semibold mb-2">Quick Links</h3>
-              <div className="space-x-4">
+              <div className="gap-x-4 flex flex-col sm:flex-row justify-center items-center ">
                 <Link
                   href="/about"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   About Us
                 </Link>
-                <span>|</span>
+                <span className="hidden sm:block">|</span>
                 <Link
                   href="/contact"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   Contact
                 </Link>
-                <span>|</span>
+                <span className="hidden sm:block">|</span>
                 <Link
                   href="/services"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   Service
                 </Link>
-                <span>|</span>
+                <span className="hidden sm:block">|</span>
                 <Link
                   href="/products"
                   className="text-gray-600 hover:text-blue-600"
@@ -51,26 +51,32 @@ function Footer() {
             </div>
             <div className="text-center">
               <h3 className="font-semibold mb-2">Follow Us on</h3>
-              <div className="space-x-4 flex justify-center items-center ">
+              <div className="gap-4 flex justify-center items-center flex-col sm:flex-row">
                 <a
-                  href="facebook.com"
+                  href="https://facebook.com"
+                  target="_blank"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   <FacebookIcon size={20} />
                 </a>
                 <a
-                  href="Instagram.com"
+                  href="https://instagram.com"
+                  target="_blank"
                   className="text-gray-600 hover:text-blue-600"
                 >
                   <Instagram size={20} />
                 </a>
-                <a href="x.com" className="text-gray-600 hover:text-blue-600">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  className="text-gray-600 hover:text-blue-600"
+                >
                   <Twitter size={20} />
                 </a>
               </div>
             </div>
           </div>
-          <div className="py-4 text-center justify-center space-x-6 flex text-gray-600">
+          <div className="py-4 text-left sm:text-center justify-center gap-4 flex flex-col sm:flex-row items-center  text-gray-600">
             <p className="flex items-center gap-2">
               <MapPin size={15} />
               <span>Kathmandu, Nepal</span>

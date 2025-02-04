@@ -1,6 +1,7 @@
 'use client';
 
 import Services from '@/components/Services';
+import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 
 const clients = [
@@ -19,8 +20,8 @@ export default function Home() {
       {/* Hero Section */}
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 bg-white">
-        <div className="space-y-6">
-          <h1 className="text-5xl font-bold leading-tight">
+        <div className="space-y-6 flex flex-col justify-center p-4">
+          <h1 className="text-6xl font-bold leading-tight">
             Bringing Your
             <span className="text-blue-600"> Ideas </span>
             to
@@ -32,29 +33,29 @@ export default function Home() {
             your vision into stunning reality
           </p>
         </div>
-        <div className="relative h-[400px]">
+        <div className="relative min-h-96">
           <Image
             src="/hero-image.png"
             alt="Printing machine"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-l-3xl"
           />
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 p-4 bg-[#FBF4F4]">
-        <div className="relative h-[500px]">
+      <section className="grid grid-cols-1 md:grid-cols-2  gap-8 px-6 py-16 p-4 bg-[#FBF4F4]">
+        <div className="relative min-h-96">
           <Image
             src="/second-img.jpeg"
             alt="Branded items"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover "
           />
         </div>
-        <div className="space-y-6">
+        <div className="space-y-6 text-[#3F3D3D]">
           <p className="text-gray-600">
-            We
+            We{' '}
             <span className="text-blue-600 font-bold">
               Print Station <span className="text-red-600">Nepal</span>
             </span>
@@ -71,7 +72,7 @@ export default function Home() {
             exceed expectations.
           </p>
           <div className="mt-8">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-3xl font-bold mb-6 text-black">
               Why Choose <span className="text-red-600">Us</span>?
             </h2>
             <ul className="space-y-4">
@@ -91,11 +92,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Separator color="#C3C3C3" className="h-1" />
       <Services />
 
       <section className="px-6 py-16 bg-gray-50">
         <h2 className="text-3xl font-bold text-center mb-12">Our Clients</h2>
-        <div className="flex flex-wrap justify-center gap-12">
+        <div className="flex flex-wrap justify-center gap-12 overflow-auto">
           {clients.map((client, index) => (
             <div key={index} className="relative w-32 h-12">
               <Image
