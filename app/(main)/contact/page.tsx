@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 const ContactInformation = () => {
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-4 py-8 md:mt-16">
+      <div className="grid md:grid-cols-2 gap-4 py-8 md:mt-16 mb-8">
         <div className="bg-sky-900 md:rounded-r-3xl md:mr-[13rem]">
           <div className="py-14 pl-24">
             <h1 className="text-gray-200 text-2xl py-3">Contact Information</h1>
