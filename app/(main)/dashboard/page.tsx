@@ -1,4 +1,13 @@
-export default function AdminDashboard() {
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+
+export default async function AdminDashboard() {
+  const session = await auth();
+  console.log(session);
+  if(session?.user?.email !== 'printxadmin@gmail.com'){
+    redirect('/sign-in');
+  }
+
     return (
       <div className="flex flex-col p-6 w-full">
         <div className="mb-6">

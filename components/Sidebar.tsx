@@ -5,9 +5,9 @@ import { Logout } from './Logout';
 
 const Sidebar = () => {
   const sidebarItems = [
-    { title: 'Home', route: '/home', icon: <Home size={20} /> },
-    { title: 'Services', route: '/services', icon: <FileText size={20} /> },
-    { title: 'Settings', route: '/settings', icon: <Settings size={20} /> },
+    { title: 'Home', route: '/dashboard', icon: <Home size={20} /> },
+    { title: 'Services', route: '/dashboard/my-services', icon: <FileText size={20} /> },
+    { title: 'Settings', route: '/dashboard/settings', icon: <Settings size={20} /> },
     {title: <Logout/> , route: '/', icon: <Waves size={20} />},
   ];
 
