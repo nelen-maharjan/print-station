@@ -33,6 +33,10 @@ export default {
                 }
 
                 // Compare passwords
+                if (!user.password) {
+                    console.log("Invalid password");
+                    return null;
+                }
                 const isPasswordValid = await bcryptjs.compare(credentials.password as string, user.password);
                 if (!isPasswordValid) {
                     console.log("Invalid password");

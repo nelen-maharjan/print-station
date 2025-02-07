@@ -125,6 +125,9 @@ export async function handleChangePassword({
         return { error: "User not found" };
       }
   
+      if (typeof user.password !== 'string') {
+        return { error: "Invalid password format." };
+      }
       const isMatch = await bcryptjs.compare(oldPassword, user.password);
       if (!isMatch) {
         return { error: "Old password does not match!" };
