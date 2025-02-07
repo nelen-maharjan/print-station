@@ -16,17 +16,24 @@ const ServicesPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false); 
 
   useEffect(() => {
-      const fetchServices = async () => {
+    const fetchServices = async () => {
       try {
         const response = await getAllServices();
-        setServices(response);
+  
+        if ('error' in response) {
+          console.error('Error fetching services:', response.error);
+          setServices([]); 
+        } else {
+          setServices(response);
+        }
+  
         setLoading(false);
       } catch (error) {
         console.error('Error fetching services:', error);
         setLoading(false);
       }
     };
-
+  
     fetchServices();
   }, []);
 
