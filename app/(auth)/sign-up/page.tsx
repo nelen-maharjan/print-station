@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -21,7 +19,7 @@ import { signUpSchema } from '@/lib/zod';
 import { handleCredentialsSignin, handleSignUp } from '@/lib/action';
 
 export default function SignUp() {
-  const [globalError, setGlobalError] = useState('');
+  const [globalError, setGlobalError] = useState<string>('');
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -46,7 +44,7 @@ export default function SignUp() {
       } else {
         setGlobalError(result.message);
       }
-    } catch (error) {
+    } catch {
       setGlobalError('An unexpected error occurred. Please try again.');
     }
   };

@@ -7,14 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input"; 
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getUser, updateProfile, handleChangePassword } from "@/lib/action";
 import { toast } from "@/hooks/use-toast";
 
 const SettingsPage = () => {
-  
-  const [user, setUser] = useState<any>({});
   const [passwordData, setPasswordData] = useState({
     oldPassword: "",
     newPassword: "",
@@ -27,7 +25,6 @@ const SettingsPage = () => {
   const getUserDetails = async () => {
     const res = await getUser();
     if (res?.result) {
-      setUser(res.result);
       setProfileData({
         name: res.result.name || "",
         email: res.result.email || "",
@@ -42,7 +39,7 @@ const SettingsPage = () => {
   const updateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await updateProfile(profileData);
-    if (res?.success) { 
+    if (res?.success) {
       toast({ title: "User updated successfully!" });
     } else {
       toast({ variant: "destructive", title: res?.error || "User not updated!" });
@@ -52,7 +49,7 @@ const SettingsPage = () => {
   const changePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await handleChangePassword(passwordData);
-    
+
     if (res?.success) {
       toast({ title: "Password changed successfully!" });
     } else if (res?.error) {
@@ -61,7 +58,6 @@ const SettingsPage = () => {
       toast({ variant: "destructive", title: "An unexpected error occurred." });
     }
   };
-  
 
   const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
