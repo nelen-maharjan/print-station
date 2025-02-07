@@ -19,6 +19,7 @@ model User {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   Account         Account[]
+  services        Service[] @relation("UserServices")
 }
 
 model Account {
@@ -41,4 +42,15 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+model Service {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  image     String
+  userId    String   @db.ObjectId 
+  user      User     @relation("UserServices", fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
