@@ -4,7 +4,10 @@ import { redirect } from "next/navigation";
 export default async function AdminDashboard() {
   const session = await auth();
   console.log(session);
-  if(session?.user?.email !== 'printxadmin@gmail.com'){
+  // if(session?.user?.email !== 'printxadmin@gmail.com'){
+  //   redirect('/sign-in');
+  // }
+  if(!session){
     redirect('/sign-in');
   }
 
@@ -12,7 +15,7 @@ export default async function AdminDashboard() {
       <div className="flex flex-col p-6 w-full">
         <div className="mb-6">
           <h1 className="text-3xl font-semibold text-gray-800">
-            Welcome back, Admin!
+            Welcome back, {session?.user?.name}!
           </h1>
           <p className="text-lg text-gray-600">
             Here’s an overview of your dashboard. You can manage your settings, services, and monitor activities.
