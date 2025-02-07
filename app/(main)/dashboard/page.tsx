@@ -1,5 +1,4 @@
 import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
 
 export default async function AdminDashboard() {
   const session = await auth();
@@ -35,9 +34,6 @@ export default async function AdminDashboard() {
           <ul className="mt-4 space-y-4 text-gray-600">
             <li className="flex items-center">
               <span className="text-gray-900 font-semibold">New Service Added:</span> Service XYZ
-            </li>
-            <li className="flex items-center">
-              <span className="text-gray-900 font-semibold">User Registered:</span> John Doe
             </li>
           </ul>
         </div>

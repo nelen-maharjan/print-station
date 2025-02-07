@@ -8,12 +8,8 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-    // if(session?.user?.email !== 'printxadmin@gmail.com'){
-    //   redirect('/sign-in');
-    // }
-    console.log(session?.user?.role);
     
-    if(!session){
+    if(session?.user?.role !== 'admin'){
       redirect('/sign-in');
     }
 
