@@ -28,13 +28,8 @@ export async function handleCredentialsSignin({
           };
       }
     }
-    throw error; // Use the error for debugging or logging if needed
+    throw error;
   }
-}
-
-// Handle GitHub Sign-In
-export async function handleGithubSignin() {
-  await signIn("github", { redirectTo: "/" });
 }
 
 // Handle Sign-Out
@@ -65,7 +60,6 @@ export async function handleSignUp({
       return { success: false, message: "Invalid data." };
     }
 
-    // Check if the email is already taken
     const existingUser = await prisma.user.findUnique({
       where: {
         email,
