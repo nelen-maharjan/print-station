@@ -19,16 +19,24 @@ function Services() {
     const fetchServices = async () => {
       try {
         const fetchedServices = await getAllServices();
-        setServices(fetchedServices);
+  
+        if ('error' in fetchedServices) {
+          console.error('Error fetching services:', fetchedServices.error);
+          setServices([]);
+        } else {
+          setServices(fetchedServices);
+        }
+  
         setLoading(false);
       } catch (error) {
         console.error('Error fetching services:', error);
-        setLoading(false);
+        setLoading(false); 
       }
     };
-
+  
     fetchServices();
-  }, []); 
+  }, []);
+  
 
   return (
     <section className="px-6 py-16">
