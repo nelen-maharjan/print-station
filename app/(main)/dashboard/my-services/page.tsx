@@ -16,7 +16,7 @@ const ServicesPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false); 
 
   useEffect(() => {
-    const fetchServices = async () => {
+      const fetchServices = async () => {
       try {
         const response = await getAllServices();
         setServices(response);

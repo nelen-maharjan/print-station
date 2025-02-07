@@ -272,3 +272,45 @@ export async function getAllServices() {
     return { error: "An error occurred while fetching services." };
   }
 }
+
+export async function updateService(data: FormData, serviceId: string) {
+  const session = await auth();
+
+  if (!session?.user) {
+    return { error: "User not found" };
+  }
+
+  const title = data.get("title") as string;
+  const image = data.get("image") as string;
+
+  if (!title || !image) {
+    return { error: "Please provide both a title and an image." };
+  }
+
+  try {
+    const existingService = await prisma.service.findUnique({
+      where: { id: serviceId },
+    });
+
+    if (!existingService) {
+      return { error: "Service not found" };
+    }
+
+    if (existingService.userId !== session.user.id) {
+      return { error: "You are not authorized to update this service." };
+    }
+
+    const updatedService = await prisma.service.update({
+      where: { id: serviceId },
+      data: {
+        title,
+        image,
+      },
+    });
+
+    return updatedService;
+  } catch (error) {
+    console.error("Error updating service:", error);
+    return { error: "An unexpected error occurred. Please try again." };
+  }
+}

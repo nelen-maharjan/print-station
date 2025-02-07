@@ -45,7 +45,6 @@ const ServiceForm = ({ closeDialog }: { closeDialog: () => void }) => {
     try {
       await addServices(formData);
       closeDialog();
-      router.push('/dashboard/my-services');
       router.refresh();
     } catch (error) {
       console.error('Error creating service:', error);

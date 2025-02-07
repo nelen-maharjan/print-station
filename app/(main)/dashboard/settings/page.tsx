@@ -13,6 +13,7 @@ import { getUser, updateProfile, handleChangePassword } from "@/lib/action";
 import { toast } from "@/hooks/use-toast";
 
 const SettingsPage = () => {
+  
   const [user, setUser] = useState<any>({});
   const [passwordData, setPasswordData] = useState({
     oldPassword: "",

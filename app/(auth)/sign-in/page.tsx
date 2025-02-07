@@ -18,15 +18,12 @@ import { z } from "zod";
 import { signInSchema } from "@/lib/zod";
 import LoadingButton from "@/components/loading-button";
 import {
-    handleCredentialsSignin,
-    handleGithubSignin,
+    handleCredentialsSignin
 } from "@/lib/action";
 import { useState, useEffect } from "react";
 import ErrorMessage from "@/components/error-message";
-import { Button } from "@/components/ui/button";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Github } from "lucide-react";
 
 export default function SignIn() {
     const params = useSearchParams();
@@ -123,7 +120,6 @@ export default function SignIn() {
                                 )}
                             />
 
-                            {/* Submit button will go here */}
                             <LoadingButton
                                 pending={form.formState.isSubmitting}
                             >
@@ -131,20 +127,6 @@ export default function SignIn() {
                             </LoadingButton>
                         </form>
                     </Form>
-
-                    <span className="text-sm text-gray-500 text-center block my-2">
-                        or
-                    </span>
-                    <form className="w-full" action={handleGithubSignin}>
-                        <Button
-                            variant="outline"
-                            className="w-full"
-                            type="submit"
-                        >
-                            <Github className="h-4 w-4 mr-2" />
-                            Sign in with GitHub
-                        </Button>
-                    </form>
                 </CardContent>
             </Card>
         </div>
