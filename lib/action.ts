@@ -28,7 +28,7 @@ export async function handleCredentialsSignin({
           };
       }
     }
-    throw error;
+    throw error; // Use the error for debugging or logging if needed
   }
 }
 
@@ -170,6 +170,7 @@ export const getUser = async () => {
       return { error: 'User not found' };
     }
   } catch (error) {
+    console.error('Error fetching user:', error);
     return { error: 'An error occurred while fetching the user' };
   }
 
