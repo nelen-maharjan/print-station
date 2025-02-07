@@ -18,7 +18,7 @@ export default async function DashboardLayout({
     }
 
   return (
-    <div className="flex gap-2 min-h-screen my-12">
+    <div className="flex gap-2 min-h-screen my-12 mx-56">
       <Sidebar />
       {children}
     </div>
