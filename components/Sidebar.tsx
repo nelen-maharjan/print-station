@@ -1,12 +1,12 @@
-import { Home, Settings, FileText } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { Home, Settings, FileText } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
 const Sidebar = () => {
   const sidebarItems = [
-    { title: "Home", route: "/home", icon: <Home size={20} /> },
-    { title: "Services", route: "/services", icon: <FileText size={20} /> },
-    { title: "Settings", route: "/settings", icon: <Settings size={20} /> },
+    { title: 'Home', route: '/home', icon: <Home size={20} /> },
+    { title: 'Services', route: '/services', icon: <FileText size={20} /> },
+    { title: 'Settings', route: '/settings', icon: <Settings size={20} /> },
   ];
 
   return (
